@@ -2,15 +2,15 @@ machine:
   services:
     - docker
   environment:
-    PATH:/root/miniconda/bin:$PATH
-    CONDA_ENV_PATH:/root/miniconda/envs/rep_py3
+    PATH: /root/miniconda/bin:$PATH
+    CONDA_ENV_PATH: /root/miniconda/envs/rep_py3
 dependencies:
   override:
     - docker build -t triggers . 
 
 test:
   override:
-    - docker run -ti -e OPENMLKEY=$OPENMLKEY -v `pwd`:/notebooks triggers /bin/bash -c "#!bin/bash/ &&\
+    - docker run -ti -e OPENMLKEY=$OPENMLKEY -v `pwd`:/notebooks triggers /bin/bash -c "source /root/.bashrc &&\
       cd /notebooks &&\
       source activate rep_py3 &&\
       jupyter nbconvert --to html --output-dir=$CIRCLE_ARTIFACTS --ExecutePreprocessor.timeout=-1 --execute Triggers_kaggle.ipynb"
