@@ -11,4 +11,4 @@ test:
       cd /notebooks ;
       echo $CIRCLE_ARTIFACTS ;
       jupyter nbconvert --to html --output-dir=$CIRCLE_ARTIFACTS --ExecutePreprocessor.timeout=-1 --execute Triggers_kaggle.ipynb":
-          timeout: 5
+    - sleep 5
