@@ -4,7 +4,9 @@ machine:
 
 dependencies:
   pre:
-    - source /root/.bashrc
+    - export PATH=/root/miniconda/bin:$PATH
+    - export CONDA_ENV_PATH=/root/miniconda/envs/rep_py3
+    - source activate rep_py3
   override:
     - docker build -t triggers . 
 
