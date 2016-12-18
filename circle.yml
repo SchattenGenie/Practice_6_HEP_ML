@@ -10,5 +10,5 @@ test:
     - docker run -tv `pwd`:/notebooks triggers bash -c "source /root/miniconda/bin/activate /root/miniconda/envs/rep_py3 ;
       cd /notebooks ;
       echo $CIRCLE_ARTIFACTS ;
-      jupyter nbconvert --to html --output-dir=$CIRCLE_ARTIFACTS --ExecutePreprocessor.timeout=-1 --execute Triggers_kaggle.ipynb":
+      jupyter nbconvert --to html --output-dir=$CIRCLE_ARTIFACTS --ExecutePreprocessor.timeout=-1 --execute Triggers_kaggle.ipynb"
     - sleep 5
