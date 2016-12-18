@@ -8,5 +8,5 @@ dependencies:
 
 test:
   override:
-    - docker run -ti -e OPENMLKEY=$OPENMLKEY -v `pwd`:/notebooks triggers  bash -c "cd /notebooks;\
-    jupyter nbconvert --to html --output-dir=$CIRCLE_ARTIFACTS --ExecutePreprocessor.timeout=-1 --execute Triggers_kaggle.ipynb"
+    - docker run -ti -e OPENMLKEY=$OPENMLKEY -v `pwd`:/notebooks triggers  bash -c "cd /notebooks;
+      jupyter nbconvert --to html --output-dir=$CIRCLE_ARTIFACTS --ExecutePreprocessor.timeout=-1 --execute Triggers_kaggle.ipynb"
