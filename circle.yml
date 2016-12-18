@@ -2,8 +2,8 @@ machine:
   services:
     - docker
   environment:
-    PATH: /root/miniconda/bin:$PATH
-    CONDA_ENV_PATH: /root/miniconda/envs/rep_py3
+    PATH: "/root/miniconda/bin:$PATH"
+    CONDA_ENV_PATH: "/root/miniconda/envs/rep_py3"
 dependencies:
   override:
     - docker build -t triggers . 
