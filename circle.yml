@@ -7,8 +7,6 @@ dependencies:
 
 test:
   override:
-    - docker run -tv `pwd`:/notebooks triggers bash -c "source /root/miniconda/bin/activate /root/miniconda/envs/rep_py3 ;
-      cd /notebooks ;
-      echo $CIRCLE_ARTIFACTS ;
-      jupyter nbconvert --to html --ExecutePreprocessor.timeout=-1 --execute Triggers_kaggle.ipynb"
+    - docker run -tv `pwd`:/notebooks triggers bash -c "source /root/miniconda/bin/activate /root/miniconda/envs/rep_py3 ; cd /notebooks ; echo $CIRCLE_ARTIFACTS ; jupyter nbconvert --to html --ExecutePreprocessor.timeout=-1 --execute Triggers_kaggle.ipynb":
+        timeout: 7200
     - mv Triggers_kaggle.html $CIRCLE_ARTIFACTS
