@@ -6,11 +6,11 @@ dependencies:
   pre:
     - export PATH=/root/miniconda/bin:$PATH
     - export CONDA_ENV_PATH=/root/miniconda/envs/rep_py3
-    - source activate rep_py3
   override:
     - docker build -t triggers . 
 
 test:
   override:
-    - docker run -ti -e OPENMLKEY=$OPENMLKEY -v `pwd`:/notebooks triggers  bash -c "cd /notebooks ;
+    - docker run -ti -e OPENMLKEY=$OPENMLKEY -v `pwd`:/notebooks triggers  bash -c "cd /notebooks &&\
+      source activate rep_py3 &&\
       jupyter nbconvert --to html --output-dir=$CIRCLE_ARTIFACTS --ExecutePreprocessor.timeout=-1 --execute Triggers_kaggle.ipynb"
